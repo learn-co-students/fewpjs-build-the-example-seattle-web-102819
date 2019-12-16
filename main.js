@@ -18,8 +18,12 @@ function heartClicked(e) {
       return serverMessage
     })
     .catch(function(error) {
-      document.getElementById("modal").className = "";
-      console.log(error.message);
+      const modal = document.getElementById("modal")
+      modal.className = "";
+      modal.textContent = error
+      setTimeout(function() {
+        modal.className = "hidden"
+      }, 5000)
     });
 }
 
