@@ -4,8 +4,21 @@ const FULL_HEART = '♥'
 
 // Your JavaScript code goes here!
 
+const errorModal = document.querySelector('div#modal');
+errorModal.className = "hidden";
 
+document.addEventListener('click', (event) => {
 
+  // console.log(event.path[1].innerText.split('').pop());
+  let currentHeart = event.path[1].innerText.split('').pop();
+
+  if (currentHeart == '♡') {
+    event.activatedHeart = '♥';
+  }
+  else if (currentHeart == '♥') {
+    event.classList.remove("activateHeart");
+  }
+})
 
 //------------------------------------------------------------------------------
 // Ignore after this point. Used only for demo purposes
