@@ -5,6 +5,29 @@ const FULL_HEART = '♥'
 // Your JavaScript code goes here!
 
 
+  let likes = document.querySelectorAll('.like-glyph')
+  for(let key of likes) {
+    key.addEventListener("click", function() {
+      mimicServerCall()
+      .then(function(serverMessage){
+
+      if (key.innerHTML == EMPTY_HEART) {
+        key.innerHTML = FULL_HEART
+        key.style.color = "red"
+      }
+      else {
+        key.innerHTML = EMPTY_HEART
+        key.style.color = ""
+      }})
+      .catch(function(error){
+        document.getElementById("modal").className = "";
+        setTimeout(function() {
+        document.getElementById("modal").className = "hidden"
+        }, 3000)
+        
+      })
+    })
+  }
 
 
 //------------------------------------------------------------------------------
